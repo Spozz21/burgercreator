@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/general.css">
+    <script src="js/creator.js"></script>
+</head>
+
+<body>
+    <div class="container ">
+        <div class="row">
+            <div class="col-sm-6 form">
+                <h1>Burger Creator</h1>
+                <p> Select what you would like on your burger below.</p>
+
+                <label>Bun Type</label>
+                <div class="col-sm-4"><input type="radio" name="buntype" value="white" onchange="toggleWhite();" checked> White</div>
+                <div class="col-sm-4"><input type="radio" name="buntype" value="multi" onchange="toggleMulti();"> Multigrain</div>
+
+                <label>Ingredients</label>
+                <div class="col-sm-4"><input type="checkbox" name="ingredient1" value="white" onchange="toggleVisibility('imgtomato')"> Tomato</div>
+                <div class="col-sm-4"><input type="checkbox" name="ingredient2" value="white" onchange="toggleVisibility('imgonion')"> Onion</div>
+                <div class="col-sm-4"><input type="checkbox" name="ingredient3" value="white" onchange="toggleVisibility('imgpickles')"> Pickles</div>
+                <div class="col-sm-4"><input type="checkbox" name="ingredient4" value="white" onchange="toggleVisibility('imgcheese')"> Cheese</div>
+                <div class="col-sm-4"><input type="checkbox" name="ingredient5" value="white" onchange="toggleVisibility('imgpatty')" checked> Patty</div>
+                <div class="col-sm-4"><input type="checkbox" name="ingredient6" value="white" onchange="toggleVisibility('imglettuce')" checked> Lettuce</div>
+            </div>
+            <div class="col-sm-6 preview">
+                <div class="burger">
+                    <img class="ingredient" style="z-index: 100; display: block;" id="imgtopbunwhite" src="img/bun-top.png">
+                    <img class="ingredient" style="z-index: 100; display: none;" id="imgtopbunmulti" src="img/bun-topmulti.png">
+                    <img class="ingredient" style="z-index: 90; display: none; margin-top: -135px;" id="imgtomato" src="img/tomato.png">
+                    <img class="ingredient" style="z-index: 80; display: none; margin-top: -130px;" id="imgonion" src="img/onion.png">
+                    <img class="ingredient" style="z-index: 70; display: none; margin-top: -120px;" id="imgpickles" src="img/pickles.png" >
+                    <img class="ingredient" style="z-index: 60; display: none; margin-top: -130px;" id="imgcheese" src="img/cheese.png" >
+                    <img class="ingredient" style="z-index: 50; display: block; margin-top: -150px;" id="imgpatty" src="img/patty.png" >
+                    <img class="ingredient" style="z-index: 40; display: block; margin-top: -120px;" id="imglettuce" src="img/lettuce.png">
+                    <img class="ingredient bunbottom" style="z-index: 30; display: block; margin-top: -120px;" id="imgbtmbunwhite" src="img/bun-bottom.png">
+                    <img class="ingredient bunbottom" style="z-index: 30; display: none; margin-top: -120px;" id="imgbtmbunmulti" src="img/bun-bottommulti.png">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function toggleVisibility(id) {
+            var x = document.getElementById(id);
+
+            if (x.style.display == "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+        function toggleWhite() {
+            document.getElementById('imgtopbunwhite').style.display = "block";
+            document.getElementById('imgtopbunmulti').style.display = "none";
+            document.getElementById('imgbtmbunwhite').style.display = "block";
+            document.getElementById('imgbtmbunmulti').style.display = "none";
+        }
+        function toggleMulti() {
+            document.getElementById('imgtopbunwhite').style.display = "none";
+            document.getElementById('imgtopbunmulti').style.display = "block";
+            document.getElementById('imgbtmbunwhite').style.display = "none";
+            document.getElementById('imgbtmbunmulti').style.display = "block";
+        }
+    </script>
+</body></html>
